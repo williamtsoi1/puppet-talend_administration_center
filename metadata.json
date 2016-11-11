@@ -1,0 +1,41 @@
+{
+  "name": "puppet-talend_administration_center",
+  "version": "0.1.0",
+  "author": "William Tsoi",
+  "summary": "Provisions an instance of Talend Administration Center running on Tomcat",
+  "license": "MIT",
+  "source": "https://github.com/williamtsoi1/puppet-talend_administration_center",
+  "project_page": "https://github.com/williamtsoi1/puppet-talend_administration_center",
+  "issues_url": "https://github.com/williamtsoi1/puppet-talend_administration_center/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 1.0.0"
+    },
+    {
+      "name": "puppet-staging",
+      "version_requirement": ">= 2.0.1"
+    },
+    {
+      "name": "flypenguin-mkdir",
+      "version_requirement": ">= 1.0.4"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    }
+  ]
+}
