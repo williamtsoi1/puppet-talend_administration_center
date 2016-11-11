@@ -12,13 +12,13 @@ class talend_administration_center::install::tac_paths (
     mode  => '0744',
   }
 
-  mkdir::p { $generated_jobs_path:
+  mkdir::p { $execution_logs_path:
     owner => $tomcat_user,
     group => $tomcat_group,
     mode  => '0744',
   }
 
-  mkdir::p { $generated_jobs_path:
+  mkdir::p { $audit_reports_path:
     owner => $tomcat_user,
     group => $tomcat_group,
     mode  => '0744',

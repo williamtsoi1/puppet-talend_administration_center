@@ -84,7 +84,7 @@ class talend_administration_center (
   $tac_db_url             = $::talend_administration_center::params::tac_db_url,
   $tac_db_username        = $::talend_administration_center::params::tac_db_username,
   $tac_db_password        = $::talend_administration_center::params::tac_db_password,
-  $tac_db_config_password = $::talend_administration_center::params::db_config_password,
+  $tac_db_config_password = $::talend_administration_center::params::tac_db_config_password,
 ) inherits ::talend_administration_center::params {
 
   # validate parameters here
@@ -110,6 +110,8 @@ class talend_administration_center (
     audit_reports_path    => $audit_reports_path,
     catalina_home         => $catalina_home,
     tac_webapp_location   => $tac_webapp_location,
+    tomcat_user           => $tomcat_user,
+    tomcat_group          => $tomcat_group,
     tac_db_connectors_url => $tac_db_connectors_url,
   } ->
   class { '::talend_administration_center::config':

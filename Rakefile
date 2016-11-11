@@ -16,7 +16,7 @@ begin
 rescue LoadError # rubocop:disable Lint/HandleExceptions
 end
 
-RuboCop::RakeTask.new
+#RuboCop::RakeTask.new
 
 exclude_paths = [
   "bundle/**/*",
@@ -58,6 +58,6 @@ task :test => [
   :metadata_lint,
   :syntax,
   :lint,
-  :rubocop,
+  #:rubocop,
   :spec,
 ]

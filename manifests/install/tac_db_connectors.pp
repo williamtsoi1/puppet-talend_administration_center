@@ -1,9 +1,9 @@
 # Installs the required database connectors into the Tomcat libs directory
 class talend_administration_center::install::tac_db_connectors (
-  tac_db_connectors_url => $tac_db_connectors_url,
-  catalina_home         => $catalina_home,
-  tomcat_user           => $tomcat_user,
-  tomcat_group          => $tomcat_group,
+  $tac_db_connectors_url,
+  $catalina_home,
+  $tomcat_user,
+  $tomcat_group,
 ){
   mkdir::p { "${catalina_home}/lib":
     owner        => $tomcat_user,

@@ -22,7 +22,6 @@ class talend_administration_center::config (
   }
 
   file { "${catalina_home}/webapps/${tac_webapp_location}/WEB-INF/classes/configuration.properties":
-  {
     content => template('talend_administration_center/configuration.properties.erb'),
     owner   => $tomcat_user,
     group   => $tomcat_group,
