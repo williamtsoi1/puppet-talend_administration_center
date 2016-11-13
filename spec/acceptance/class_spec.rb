@@ -5,15 +5,15 @@ describe 'talend_administration_center class' do
     # Using puppet_apply as a helper
     it 'should work idempotently with no errors' do
       pp = <<-EOS
-      class { 'talend_administration_center': 
+      class { 'talend_administration_center':
         tac_war_url => 'http://foo.com/org.talend.administrator.war',
         tac_domain  => 'https://talend.mycompany.com',
       }
       EOS
 
       # Run it twice and test for idempotency
-      apply_manifest(pp, :catch_failures => true)
-      apply_manifest(pp, :catch_changes  => true)
+      apply_manifest(pp, catch_failures: true)
+      apply_manifest(pp, catch_changes: true)
     end
 
     describe package('talend_administration_center') do

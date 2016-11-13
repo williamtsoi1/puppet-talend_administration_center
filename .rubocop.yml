@@ -1,8 +1,9 @@
-require: rubocop-rspec
+#require: rubocop-rspec
 AllCops:
   TargetRubyVersion: 1.9
   Include:
     - ./**/*.rb
+    - rubocop-rspec
   Exclude:
     - files/**/*
     - vendor/**/*
@@ -345,7 +346,7 @@ Style/Next:
   Enabled: True
 
 Style/SingleLineBlockParams:
-  Enabled: True
+  Enabled: False
 
 Style/SingleLineMethods:
   Enabled: True
