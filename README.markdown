@@ -1,3 +1,5 @@
+[![Build Status](https://img.shields.io/travis/williamtsoi1/puppet-talend_administration_center.svg)](https://travis-ci.org/williamtsoi1/puppet-talend_administration_center)
+
 #### Table of Contents
 
 1. [Overview](#overview)
