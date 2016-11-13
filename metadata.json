@@ -1,5 +1,5 @@
 {
-  "name": "puppet-talend_administration_center",
+  "name": "williamtsoi-talend_administration_center",
   "version": "0.1.0",
   "author": "William Tsoi",
   "summary": "Provisions an instance of Talend Administration Center running on Tomcat",
