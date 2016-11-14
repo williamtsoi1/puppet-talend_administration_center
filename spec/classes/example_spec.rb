@@ -57,7 +57,7 @@ describe 'talend_administration_center' do
             }
           end
           context 'correct service is invoked' do
-            it { is_expected.to contain_service('tomcat-default') }
+            it { is_expected.to contain_service('talend_administration_center-tomcat').with_name('tomcat-default')  }
           end
           context 'correct directories created' do
             it { is_expected.to contain_mkdir__p('/Talend/Administrator/executionLogs') }
@@ -104,7 +104,7 @@ describe 'talend_administration_center' do
           end
           context 'correct configuration.properties' do
             it { is_expected.to contain_file('/opt/custom-tomcat/webapps/tac/WEB-INF/classes/configuration.properties').with_content(/conf.applicationStaticLocation=https:\/\/talend.mycompany.com\/tac/) }
-            it { is_expected.to contain_service('custom-tomcat') }
+            it { is_expected.to contain_service('talend_administration_center-tomcat').with_name('custom-tomcat') }
           end
           context 'correct directories created' do
             it { is_expected.to contain_mkdir__p('/Talend/Administrator/executionLogs') }
