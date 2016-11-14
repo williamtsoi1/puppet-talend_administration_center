@@ -6,8 +6,9 @@
 class talend_administration_center::service (
   $tomcat_service_name,
 ){
-  service { $tomcat_service_name:
+  service { 'talend_administration_center-tomcat':
     ensure     => running,
+    name       => $tomcat_service_name,
     enable     => true,
     hasstatus  => true,
     hasrestart => true,
