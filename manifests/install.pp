@@ -21,6 +21,7 @@ class talend_administration_center::install (
     tac_webapp_location => $tac_webapp_location,
     tomcat_user         => $tomcat_user,
     tomcat_group        => $tomcat_group,
+    before              => Class['::talend_administration_center::install'],
   }
 
   class { '::talend_administration_center::install::tac_paths':
@@ -29,6 +30,7 @@ class talend_administration_center::install (
     audit_reports_path  => $audit_reports_path,
     tomcat_user         => $tomcat_user,
     tomcat_group        => $tomcat_group,
+    before              => Class['::talend_administration_center::install'],
   }
 
   if $tac_db_connectors_url != undef {
@@ -37,6 +39,7 @@ class talend_administration_center::install (
       catalina_home         => $catalina_home,
       tomcat_user           => $tomcat_user,
       tomcat_group          => $tomcat_group,
+      before                => Class['::talend_administration_center::install'],
     }
   }
 }
