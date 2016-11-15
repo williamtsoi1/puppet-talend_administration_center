@@ -1,6 +1,6 @@
 {
   "name": "williamtsoi-talend_administration_center",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": "William Tsoi",
   "summary": "Provisions an instance of Talend Administration Center running on Tomcat",
   "license": "MIT",
