@@ -14,11 +14,14 @@ class talend_administration_center::config (
   $tac_db_password,
   $tac_db_config_password,
 ){
-  mkdir::p { "${catalina_home}/webapps/${tac_webapp_location}/WEB-INF/classes":
-    owner        => $tomcat_user,
-    group        => $tomcat_group,
-    mode         => '0744',
-    declare_file => true,
+  file { [
+    "${catalina_home}/webapps/${tac_webapp_location}/WEB-INF",
+    "${catalina_home}/webapps/${tac_webapp_location}/WEB-INF/classes",
+  ]:
+    ensure => 'directory',
+    owner  => $tomcat_user,
+    group  => $tomcat_group,
+    mode   => '0644',
   }
 
   file { "${catalina_home}/webapps/${tac_webapp_location}/WEB-INF/classes/configuration.properties":
@@ -26,5 +29,9 @@ class talend_administration_center::config (
     owner   => $tomcat_user,
     group   => $tomcat_group,
     mode    => '0644',
+    require => File[
+      "${catalina_home}/webapps/${tac_webapp_location}/WEB-INF",
+      "${catalina_home}/webapps/${tac_webapp_location}/WEB-INF/classes"
+    ],
   }
 }

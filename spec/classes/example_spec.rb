@@ -56,15 +56,12 @@ describe 'talend_administration_center' do
               .without_content(/database.password/)
             }
           end
-          context 'correct service is invoked' do
-            it { is_expected.to contain_service('talend_administration_center-tomcat').with_name('tomcat-default')  }
-          end
           context 'correct directories created' do
             it { is_expected.to contain_mkdir__p('/Talend/Administrator/executionLogs') }
             it { is_expected.to contain_mkdir__p('/Talend/Administrator/generatedJobs') }
             it { is_expected.to contain_mkdir__p('/Talend/Audit/reports') }
-            it { is_expected.to contain_mkdir__p('/opt/apache-tomcat/webapps/org.talend.administrator/WEB-INF/classes') }
-            it { is_expected.to contain_mkdir__p('/opt/apache-tomcat/webapps/org.talend.administrator') }
+            it { is_expected.to contain_file('/opt/apache-tomcat/webapps/org.talend.administrator/WEB-INF/classes') }
+            it { is_expected.to contain_file('/opt/apache-tomcat/webapps/org.talend.administrator') }
           end
           context 'war deployed' do
             it { is_expected.to contain_staging__deploy('org.talend.administrator.war')}
@@ -104,14 +101,13 @@ describe 'talend_administration_center' do
           end
           context 'correct configuration.properties' do
             it { is_expected.to contain_file('/opt/custom-tomcat/webapps/tac/WEB-INF/classes/configuration.properties').with_content(/conf.applicationStaticLocation=https:\/\/talend.mycompany.com\/tac/) }
-            it { is_expected.to contain_service('talend_administration_center-tomcat').with_name('custom-tomcat') }
           end
           context 'correct directories created' do
             it { is_expected.to contain_mkdir__p('/Talend/Administrator/executionLogs') }
             it { is_expected.to contain_mkdir__p('/Talend/Administrator/generatedJobs') }
             it { is_expected.to contain_mkdir__p('/Talend/Audit/reports') }
-            it { is_expected.to contain_mkdir__p('/opt/custom-tomcat/webapps/tac/WEB-INF/classes') }
-            it { is_expected.to contain_mkdir__p('/opt/custom-tomcat/webapps/tac') }
+            it { is_expected.to contain_file('/opt/custom-tomcat/webapps/tac/WEB-INF/classes') }
+            it { is_expected.to contain_file('/opt/custom-tomcat/webapps/tac') }
           end
         end
       end
