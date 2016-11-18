@@ -13,9 +13,16 @@ class talend_administration_center::install::tac_db_connectors (
   }
 
   staging::deploy { 'db_connectors.zip':
-    source => $tac_db_connectors_url,
-    target => "${catalina_home}/lib",
-    user   => $tomcat_user,
-    group  => $tomcat_group,
+    source  => $tac_db_connectors_url,
+    target  => "${catalina_home}/lib",
+    user    => $tomcat_user,
+    group   => $tomcat_group,
+    creates => "${catalina_home}/lib/done.txt",
+  } ->
+  file { "${catalina_home}/lib/done.txt":
+    content => 'done',
+    owner   => $tomcat_user,
+    group   => $tomcat_group,
+    mode    => '0644',
   }
 }
